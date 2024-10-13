@@ -27,6 +27,9 @@
                   </span>
                 </h6>
               </div>
+              <div>
+                <a class="btn btn-info" href="{{url('product_details', $products->id)}}">Details</a>
+              </div>
               
             </a>
           </div>
