@@ -25,6 +25,11 @@
         td{
             border: 1px solid skyblue;
         }
+        .cart_value{
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 18px;
+        }
     </style>
     @include ('home.style')
 
@@ -42,7 +47,11 @@
                 <th>Product title</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Action</th>
             </tr>
+            <?php
+            $value=0;
+            ?>
             @foreach ($cart as $cart)
             <tr>
                 <td>{{$cart->product->title}}</td>
@@ -50,11 +59,24 @@
                 <td>
                     <img width="150" src="/products/{{$cart->product->image}}">
                 </td>
+                <td>
+                <!-- Remove Button Form -->
+                <form action="{{ url('/remove_cart', $cart->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+            </td>
             </tr>
+            <?php
+            $value = $value + $cart->product->price;
+            ?>
             @endforeach
         </table>
     </div>
-    
+    <div class="cart_value">
+        <h3>Total Value of cart is : {{$value}}</h3>
+    </div>
    
 
 
