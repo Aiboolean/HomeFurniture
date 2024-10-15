@@ -110,4 +110,44 @@ class AdminController extends Controller
         $data->save();
         return redirect('/view_orders');
     }
+    //exportOrdersCSV function
+    public function exportOrdersCSV()
+{
+    $fileName = 'orders.csv';
+    $orders = Order::with('product')->get(); // Fetch orders with related product
+
+    $headers = array(
+        "Content-type"        => "text/csv",
+        "Content-Disposition" => "attachment; filename=$fileName",
+        "Pragma"              => "no-cache",
+        "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+        "Expires"             => "0"
+    );
+
+    $columns = ['Order ID', 'Customer Name', 'Product Title', 'Quantity', 'Price', 'Status', 'Address', 'Phone', 'Order Date'];
+
+    $callback = function() use($orders, $columns) {
+        $file = fopen('php://output', 'w');
+        fputcsv($file, $columns);
+
+        foreach ($orders as $order) {
+            fputcsv($file, [
+                $order->id,
+                $order->name,
+                $order->product->title,
+                1, // Assuming quantity is always 1
+                $order->product->price,
+                $order->status,
+                $order->rec_address,
+                $order->phone,
+                $order->created_at->format('Y-m-d')
+            ]);
+        }
+
+        fclose($file);
+    };
+
+    return response()->stream($callback, 200, $headers);
+}
+
 }

@@ -34,6 +34,9 @@ Route::post('edit_product/{id}',[AdminController::class, 'edit_product'])->middl
 route::get('view_orders',[AdminController::class,'view_order'])->middleware(['auth', 'admin']);
 route::get('on_the_way/{id}',[AdminController::class,'on_the_way'])->middleware(['auth', 'admin']);
 route::get('delivered/{id}',[AdminController::class,'delivered'])->middleware(['auth', 'admin']);
+//downloadable csv for orders table
+Route::get('/export_orders_csv', [App\Http\Controllers\AdminController::class, 'exportOrdersCSV'])->name('admin.export_orders_csv');
+
 
 route::get('product_details/{id}',[HomeController::class,'product_details']);
 

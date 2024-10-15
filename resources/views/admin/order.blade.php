@@ -69,6 +69,7 @@
             @endforeach
         </table>
         </div>
+        <a href="{{ route('admin.export_orders_csv') }}" class="btn btn-info">Download CSV</a>
     </div>
     </div>
     <!-- JavaScript files-->
