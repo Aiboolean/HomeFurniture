@@ -37,7 +37,9 @@
     <div class="page-content">
         <div class="page-header">
         <div class="container-fluid">
+            <h1>Orders</h1>
         <div class="table_deg">
+        
         <table>
             <tr>
                 <th>Customer name</th>
@@ -47,6 +49,7 @@
                 <th>product title</th>
                 <th>price</th>
                 <th>Status</th>
+                <th>Update Status</th>
             </tr>
             @foreach ($data as $data)
 
@@ -58,6 +61,10 @@
                 <td>{{$data->product->title}}</td>
                 <td>{{$data->product->price}}</td>
                 <td>{{$data->status}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{url('on_the_way', $data->id)}}">On the way</a>
+                    <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Delivered</a>
+                </td>
             </tr>
             @endforeach
         </table>
