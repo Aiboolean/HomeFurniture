@@ -31,6 +31,7 @@ Route::get('view_product',[AdminController::class, 'view_product'])->middleware(
 Route::get('delete_product/{id}',[AdminController::class, 'delete_product'])->middleware(['auth','admin']);
 Route::get('update_product/{id}',[AdminController::class, 'update_product'])->middleware(['auth','admin']);
 Route::post('edit_product/{id}',[AdminController::class, 'edit_product'])->middleware(['auth','admin']);
+route::get('view_orders',[AdminController::class,'view_order'])->middleware(['auth', 'admin']);
 
 route::get('product_details/{id}',[HomeController::class,'product_details']);
 
@@ -39,3 +40,4 @@ route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth', 'veri
 Route::delete('/remove_cart/{id}', [HomeController::class, 'remove_cart'])->name('remove_cart');
 
 route::post('confirm_order',[HomeController::class,'confirm_order'])->middleware(['auth', 'verified']);
+
