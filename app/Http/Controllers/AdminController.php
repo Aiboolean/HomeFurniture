@@ -124,7 +124,7 @@ class AdminController extends Controller
         "Expires"             => "0"
     );
 
-    $columns = ['Order ID', 'Customer Name', 'Product Title', 'Quantity', 'Price', 'Status', 'Address', 'Phone', 'Order Date'];
+    $columns = ['Order ID', 'Customer Name', 'Product Title', 'Quantity', 'Price', 'Status','Payment_Status', 'Address', 'Phone', 'Order Date'];
 
     $callback = function() use($orders, $columns) {
         $file = fopen('php://output', 'w');
