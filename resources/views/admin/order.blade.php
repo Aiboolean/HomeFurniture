@@ -49,6 +49,7 @@
                 <th>product title</th>
                 <th>price</th>
                 <th>Status</th>
+                <th>Payment status</th>
                 <th>Update Status</th>
             </tr>
             @foreach ($data as $data)
@@ -61,6 +62,7 @@
                 <td>{{$data->product->title}}</td>
                 <td>{{$data->product->price}}</td>
                 <td>{{$data->status}}</td>
+                <td>{{$data->payment_status}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{url('on_the_way', $data->id)}}">On the way</a>
                     <a class="btn btn-success" href="{{url('delivered', $data->id)}}">Delivered</a>

@@ -139,6 +139,7 @@ class AdminController extends Controller
                 $order->product->price,
                 $order->status,
                 $order->rec_address,
+                $order->payment_status, // Add payment_status here
                 $order->phone,
                 $order->created_at->format('Y-m-d')
             ]);

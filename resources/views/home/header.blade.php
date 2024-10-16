@@ -15,24 +15,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="shop.html">
-                Shop
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="why.html">
-                Why Us
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html">
-                Testimonial
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
-            </li>
           </ul>
           <div class="user_option">
 
