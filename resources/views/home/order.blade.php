@@ -27,6 +27,12 @@
             border: 2px solid black;
             padding: 5px;
         }
+        .pagination{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -36,24 +42,42 @@
     @include('home.header')
     <!-- end header section -->
     <div class="div_center">
-        <table>
-            <tr>
-                <th>Product name</th>
-                <th>Price</th>
-                <th>Delivery status</th>
-                <th>Product</th>
-            </tr>
-            @foreach ($order as $order)
-            <tr>
-                <td>{{$order->product->title}}</td>
-                <td>{{$order->product->price}}</td>
-                <td>{{$order->status}}</td>
-                <td>
-                    <img width="200" src="products/{{$order->product->image}}">
-                </td>
-            </tr>
-            @endforeach
-        </table>
+    <table>
+    <tr>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Delivery status</th>
+        <th>Product</th>
+        <th>Action</th>
+    </tr>
+    @foreach ($order as $orderItem)  <!-- Changed from $order to $orderItem to avoid naming conflict -->
+    <tr>
+        <td>{{ $orderItem->product->title }}</td>
+        <td>{{ $orderItem->product->price }}</td>
+        <td>{{ $orderItem->status }}</td>
+        <td>
+            <img width="200" src="products/{{ $orderItem->product->image }}">
+        </td>
+        <td>
+            @if($orderItem->status == 'Pending')
+            <form action="{{ route('cancel_order', $orderItem->id) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger">Cancel Order</button>
+            </form>
+            @else
+            <button type="button" class="btn btn-secondary" disabled>Cannot Cancel</button>
+            @endif
+        </td>
+    </tr>
+    @endforeach
+</table>
+
+
+
+    </div>
+    <!-- Pagination Links -->
+    <div class="pagination">
+        {{ $order->links() }}
     </div>
 </div>
 

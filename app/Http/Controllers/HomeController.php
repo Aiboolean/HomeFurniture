@@ -111,9 +111,10 @@ class HomeController extends Controller
     }
     public function myorders(){
         $user = Auth::user()->id;
-        $count = Cart::where('user_id',$user)->get()->count();
-        $order = Order::where('user_id',$user)->get();
-        return view('home.order',compact('count','order'));
+        $count = Cart::where('user_id', $user)->get()->count();
+        // Get orders with the most recent first, paginate results (e.g., 10 per page)
+        $order = Order::where('user_id', $user)->orderBy('created_at', 'desc')->paginate(5); 
+        return view('home.order', compact('count', 'order'));
     }
     public function stripe($value)
     {
@@ -153,4 +154,18 @@ class HomeController extends Controller
     }
     return redirect('mycart');
 }
+    public function cancel_order($id)// Cancel order function
+    {
+        $order = Order::find($id);
+
+        if ($order && $order->status == 'Pending') {  // Checking if the status is still "Pending"
+            $order->status = 'Canceled';
+            $order->save();
+
+            return redirect()->back()->with('success', 'Order canceled successfully.');
+        }
+
+        return redirect()->back()->with('error', 'Order cannot be canceled as it has been processed.');
+    }
+
 }

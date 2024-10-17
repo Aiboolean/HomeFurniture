@@ -39,6 +39,8 @@ Route::get('/export_orders_csv', [App\Http\Controllers\AdminController::class, '
 
 
 route::get('product_details/{id}',[HomeController::class,'product_details']);
+Route::post('/cancel_order/{id}', [HomeController::class, 'cancel_order'])->name('cancel_order');//cancel order
+
 
 route::get('add_cart/{id}',[HomeController::class,'add_cart'])->middleware(['auth', 'verified']);
 route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth', 'verified']);
