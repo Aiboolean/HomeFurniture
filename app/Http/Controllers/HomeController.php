@@ -17,7 +17,11 @@ class HomeController extends Controller
         $product = Product::all()->count();
         $order = Order::all()->count();
         $delivered = Order::where('status','Delivered')->get()->count();
-        return view ('admin.index',compact('user','product','order','delivered'));
+
+         // New metrics
+        $paidByCard = Order::where('payment_status', 'Paid')->count(); // Users who paid via card
+        $cashOnDelivery = Order::where('payment_status', 'Cash on Delivery')->count(); // Users who chose cash on delivery
+        return view ('admin.index',compact('user','product','order','delivered','paidByCard', 'cashOnDelivery'));
     }
 
     public function home (){

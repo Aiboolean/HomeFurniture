@@ -56,6 +56,31 @@
                   </div>
                 </div>
               </div>
+
+                  <!-- New block: Users Paid by Card -->
+            <div class="col-md-3 col-sm-6">
+              <div class="statistic-block block">
+                <div class="progress-details d-flex align-items-end justify-content-between">
+                  <div class="title">
+                    <div class="icon"><i class="icon-credit-card"></i></div><strong>Paid by Card</strong>
+                  </div>
+                  <div class="number dashtext-5">{{$paidByCard}}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- New block: Users Paid by Cash on Delivery -->
+            <div class="col-md-3 col-sm-6">
+              <div class="statistic-block block">
+                <div class="progress-details d-flex align-items-end justify-content-between">
+                  <div class="title">
+                    <div class="icon"><i class="icon-cash"></i></div><strong>Cash on Delivery</strong>
+                  </div>
+                  <div class="number dashtext-6">{{$cashOnDelivery}}</div>
+                </div>
+              </div>
+            </div>
+
             </div>
           </div>
         </section>
