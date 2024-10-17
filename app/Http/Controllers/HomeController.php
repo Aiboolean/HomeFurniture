@@ -98,6 +98,7 @@ class HomeController extends Controller
             $order->phone = $phone;
             $order->user_id = $userid;
             $order->product_id = $carts->product_id;
+            $order->status = 'Pending';  // Make sure to set this explicitly
             $order->save();
             
         }
