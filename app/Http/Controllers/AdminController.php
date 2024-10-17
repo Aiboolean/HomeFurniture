@@ -98,8 +98,8 @@ class AdminController extends Controller
         $pending_orders = Order::where('status', 'Pending')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'pending_page');
         $shipped_orders = Order::where('status', 'On The way')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'shipped_page');
         $delivered_orders = Order::where('status', 'Delivered')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'delivered_page');
-
-        return view('admin.order', compact('pending_orders', 'shipped_orders', 'delivered_orders'));
+        $canceledOrders = Order::where('status', 'Canceled')->orderBy('created_at', 'desc')->paginate(5, ['*'], 'canceled');
+        return view('admin.order', compact('pending_orders', 'shipped_orders', 'delivered_orders','canceledOrders'));
     }
     public function on_the_way($id){
         $data = Order::find($id);

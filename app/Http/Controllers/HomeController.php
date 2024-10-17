@@ -21,7 +21,8 @@ class HomeController extends Controller
          // New metrics
         $paidByCard = Order::where('payment_status', 'Paid')->count(); // Users who paid via card
         $cashOnDelivery = Order::where('payment_status', 'Cash on Delivery')->count(); // Users who chose cash on delivery
-        return view ('admin.index',compact('user','product','order','delivered','paidByCard', 'cashOnDelivery'));
+        $canceled = Order::where('status', 'Canceled')->count(); // Canceled orders
+        return view ('admin.index',compact('user','product','order','delivered','paidByCard', 'cashOnDelivery','canceled'));
     }
 
     public function home (){

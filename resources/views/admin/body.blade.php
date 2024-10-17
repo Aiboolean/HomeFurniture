@@ -81,6 +81,18 @@
               </div>
             </div>
 
+            <!-- New block: Canceled Orders -->
+      <div class="col-md-3 col-sm-6">
+        <div class="statistic-block block">
+          <div class="progress-details d-flex align-items-end justify-content-between">
+            <div class="title">
+              <div class="icon"><i class="icon-close"></i></div><strong>Canceled Orders</strong>
+            </div>
+            <div class="number dashtext-7">{{$canceled}}</div>
+          </div>
+        </div>
+      </div>
+
             </div>
           </div>
         </section>

@@ -154,6 +154,45 @@
                     {{ $delivered_orders->appends(['pending_page' => request('pending_page'), 'shipped_page' => request('shipped_page')])->links() }}
                 </div>
 
+                <!-- New Canceled Orders Table -->
+            <h2>Canceled Orders</h2>
+            <div class="table-responsive">
+                <table>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Product ID</th>
+                            <th>Address</th>
+                            <th>Phone no.</th>
+                            <th>Product Title</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Payment Status</th>
+                        </tr>
+                    <tbody>
+                        @foreach ($canceledOrders as $order)
+                        <tr>
+                            <td>{{ $order->name }}</td>
+                            <td>{{ $order->product->id }}</td>
+                            <td>{{ $order->rec_address }}</td>
+                            <td>{{ $order->phone }}</td>
+                            <td>{{ $order->product->title }}</td>
+                            <td>{{ $order->product->price }}</td>
+                            <td>{{ $order->status }}</td>
+                            <td>{{ $order->payment_status }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+<!-- Paginate Canceled Orders, matching the previous format -->
+@if ($canceledOrders->hasPages())
+    <div class="pagination-block">
+        {{ $canceledOrders->appends(['shipped' => $shippedOrders->currentPage(), 'delivered' => $deliveredOrders->currentPage(), 'pending' => $pendingOrders->currentPage()])->links('pagination::bootstrap-4') }}
+    </div>
+@endif
+
+
 
                 <a href="{{ route('admin.export_orders_csv') }}" class="btn btn-info">Download CSV</a>
             </div>
