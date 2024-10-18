@@ -188,9 +188,14 @@
 <!-- Paginate Canceled Orders, matching the previous format -->
 @if ($canceledOrders->hasPages())
     <div class="pagination-block">
-        {{ $canceledOrders->appends(['shipped' => $shippedOrders->currentPage(), 'delivered' => $deliveredOrders->currentPage(), 'pending' => $pendingOrders->currentPage()])->links('pagination::bootstrap-4') }}
+        {{ $canceledOrders->appends([
+            'shipped_page' => $shipped_orders->currentPage(), 
+            'delivered_page' => $delivered_orders->currentPage(), 
+            'pending_page' => $pending_orders->currentPage()
+        ])->links('pagination::bootstrap-4') }}
     </div>
 @endif
+
 
 
 

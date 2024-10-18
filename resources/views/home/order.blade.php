@@ -57,7 +57,7 @@
     @foreach ($order as $orderItem)  <!-- Changed from $order to $orderItem to avoid naming conflict -->
     <tr>
         <td>{{ $orderItem->product->title }}</td>
-        <td>{{ $orderItem->product->price }}</td>
+        <td>₱{{ $orderItem->product->price }}</td>
         <td>{{ $orderItem->status }}</td>
         <td>
             <img width="200" src="products/{{ $orderItem->product->image }}">

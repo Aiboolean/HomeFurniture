@@ -34,6 +34,7 @@
             <p class="card-text">Category : {{$data->category}}</p>
             <p class="card-text">₱{{$data->price}}</p>
             <p class="card-text"><small class="text-body-secondary">In Stock : {{$data->quantity}}</small></p>
+            <a class="custom-add-btn" href="{{url('add_cart', $data->id)}}">Add to Cart</a>
         </div>
         </div>
     </div>
