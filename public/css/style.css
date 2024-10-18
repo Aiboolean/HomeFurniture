@@ -69,7 +69,7 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: skyblue;
+  background-color: rgb(247, 193, 122);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -234,8 +234,8 @@ a:focus {
 /*end header section*/
 .slider_section .slider_container {
   color: #fefefe;
-  background-color: #fadc8b;
-  background-color: rgb(255, 227, 135);
+  background-color: #b1d9ff;
+  background-color: rgb(124, 124, 124);
   padding: 25px;
   border-radius: 0 0 15px 15px;
 }

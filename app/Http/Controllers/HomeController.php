@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Category;
 use Session;
 use Stripe;
 class HomeController extends Controller
@@ -173,5 +174,20 @@ class HomeController extends Controller
 
         return redirect()->back()->with('error', 'Order cannot be canceled as it has been processed.');
     }
+    public function shop() {
+        // Get all categories with their related products
+        $categories = Category::with('products')->get();
+    
+        if (Auth::id()) {
+            $user = Auth::user();
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
+            $count = '';
+        }
+    
+        return view('home.shop', compact('categories', 'count'));
+    }
+    
 
 }
