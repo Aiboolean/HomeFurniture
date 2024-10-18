@@ -1,5 +1,9 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
+
+    <div class="flex justify-center mb-6">
+        <img src="{{ asset('images/F.png') }}" alt="Description of the image" style="width: 200px; height: 200px; border-radius: 50%;">
+    </div>
         @csrf
 
         <!-- Name -->
@@ -18,14 +22,14 @@
 
         <!-- Phone no.-->
         <div>
-            <x-input-label for="phone" :value="__('phone')" />
+            <x-input-label for="phone" :value="__('Phone No.')" />
             <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- Address -->
         <div>
-            <x-input-label for="address" :value="__('address')" />
+            <x-input-label for="address" :value="__('Address')" />
             <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>

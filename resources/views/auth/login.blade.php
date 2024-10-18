@@ -3,6 +3,11 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
+
+    <div class="flex justify-center mb-6">
+        <img src="{{ asset('images/F.png') }}" alt="Description of the image" style="width: 200px; height: 200px; border-radius: 50%;">
+    </div>
+
         @csrf
 
         <!-- Email Address -->

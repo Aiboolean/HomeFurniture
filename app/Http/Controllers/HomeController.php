@@ -106,6 +106,7 @@ class HomeController extends Controller
             $order->product_id = $carts->product_id;
             $order->status = 'Pending';  // Make sure to set this explicitly
             $order->save();
+
             
         }
         $cart_remove = Cart::where('user_id', $userid)->get();
@@ -151,6 +152,7 @@ class HomeController extends Controller
             $order->user_id = $userid;
             $order->product_id = $carts->product_id;
             $order->payment_status = "paid";
+            $order->status = 'Pending';  // Ensure status is set here as well
             $order->save();
             
         }

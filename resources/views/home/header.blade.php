@@ -31,10 +31,27 @@
               [{{$count}}]
             </a>
 
-            <form style="padding: 15px" method="POST" action="{{ route('logout') }}">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration: none; color: inherit;">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span>Logout</span>
+            </a>
+
+
+            <!--<a href="{{route('logout')}}">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>
+                Logout
+              </span>
+            </a>
+            @csrf-->
+            <!--<form style="padding: 15px" method="POST" action="{{ route('logout') }}">
                     @csrf
                       <input class="btn btn-success" type="submit" value="Logout">
-            </form>
+            </form>-->
             @else
 
             <a href="{{url('/login')}}">

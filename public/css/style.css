@@ -3,7 +3,7 @@
 body {
   font-family: "poppins", sans-serif;
   color: #101010;
-  background-color: #ffffff;
+  background-color: #fdffde;
 }
 
 .layout_padding {
@@ -48,7 +48,7 @@ body {
 }
 
 .heading_container h2 span {
-  color: #f89cab;
+  color: #ffe9d0;
 }
 
 .heading_container.heading_center {
@@ -69,7 +69,7 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: rgb(247, 193, 122);
+  background-color: rgb(255, 233, 207);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -234,8 +234,8 @@ a:focus {
 /*end header section*/
 .slider_section .slider_container {
   color: #fefefe;
-  background-color: #b1d9ff;
-  background-color: rgb(124, 124, 124);
+  background-color: #f09191;
+  background-color: rgb(53, 19, 0);
   padding: 25px;
   border-radius: 0 0 15px 15px;
 }
@@ -325,10 +325,11 @@ a:focus {
 }
 
 .shop_section .box {
-  background-color: #eeeeee;
+  background-color: rgb(255, 233, 207);
   position: relative;
   padding: 10px;
   margin-top: 25px;
+  border-radius: 10px;
 }
 
 .shop_section .box a {
