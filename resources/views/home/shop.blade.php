@@ -37,8 +37,11 @@
                 </h6>
                 </div>
                 <div>
-                <a class="btn btn-info" href="{{url('product_details', $product->id)}}">Details</a>
-                <a class="btn btn-primary" href="{{url('add_cart', $product->id)}}">Add to Cart</a>
+                <!-- Details button -->
+                <a class="custom-details-btn" href="{{url('product_details', $product->id)}}">Details</a>
+
+                <!-- Add to Cart button -->
+                <a class="custom-add-btn" href="{{url('add_cart', $product->id)}}">Add to Cart</a>
                 </div>
             </a>
             </div>

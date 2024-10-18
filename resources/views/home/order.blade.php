@@ -11,20 +11,24 @@
             margin: 60px;
         }
         table{
-            border: 2px solid black;
+            border-collapse:separate;
+            border:solid black 1px;
+            border-radius:6px;
             text-align: center;
             width: 800px;
         }
         th{
-            border: 1px solid white;
-            background-color: black;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
+           
+            border-left: solid black 1px;
+            border-top: solid black 1px;
             text-align: center;
+            color: white;
+            font: 20px;
+            font-weight: bold;
+            background-color: rgb(127, 99, 71);
         }
         td{
-            border: 2px solid black;
+            border: 1px solid black;
             padding: 5px;
         }
         .pagination{

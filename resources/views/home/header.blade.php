@@ -1,7 +1,7 @@
 <!-- header section strats -->
 <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{url('/')}}">
           <span>
             Home Furniture
           </span>
@@ -11,7 +11,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav  ">
+          <ul class="navbar-nav">
+            
             <li class="nav-item">
               <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
             </li>

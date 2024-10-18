@@ -10,20 +10,27 @@
             margin: 60px;
         }
         table{
-            border: 2px solid black;
+            border-collapse:separate;
+            border:solid black 1px;
+            border-radius:6px;
             text-align: center;
             width: 800px;
+            
         }
         th{
-            border: 2px solid black;
+            
+            border-left: solid black 1px;
+            border-top: solid black 1px;
             text-align: center;
             color: white;
             font: 20px;
             font-weight: bold;
-            background-color: black;
+            background-color: rgb(127, 99, 71);
         }
         td{
-            border: 1px solid skyblue;
+            
+            border-left: solid black 1px;
+            border-top: solid black 1px;
         }
         .cart_value{
             text-align: center;
@@ -70,7 +77,7 @@
             @foreach ($cart as $cart)
             <tr>
                 <td>{{$cart->product->title}}</td>
-                <td>{{$cart->product->price}}</td>
+                <td>₱{{$cart->product->price}}</td>
                 <td>
                     <img width="150" src="/products/{{$cart->product->image}}">
                 </td>
@@ -90,7 +97,7 @@
         </table>
     </div>
     <div class="cart_value">
-        <h3>Total Value of cart is : {{$value}}</h3>
+        <h3>Total Value of cart is : ₱{{$value}}</h3>
     </div>
 
     <div class="order_deg">

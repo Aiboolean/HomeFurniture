@@ -235,7 +235,7 @@ a:focus {
 .slider_section .slider_container {
   color: #fefefe;
   background-color: #f09191;
-  background-color: rgb(53, 19, 0);
+  background-color: rgb(82, 66, 57);
   padding: 25px;
   border-radius: 0 0 15px 15px;
 }
@@ -854,4 +854,31 @@ a:focus {
 }
 
 /* end footer section*/
+
+.custom-details-btn {
+  background-color: #e9c784; /* Teal color */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-details-btn:hover {
+  background-color: #6b5f3f; /* Darker teal on hover */
+}
+
+.custom-add-btn {
+  background-color: #b6f5b0; /* Red color */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-add-btn:hover {
+  background-color: #c0f779; /* Darker red on hover */
+}
+
 /*# sourceMappingURL=style.css.map */
