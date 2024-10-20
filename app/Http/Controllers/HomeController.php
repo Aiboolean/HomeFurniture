@@ -27,7 +27,7 @@ class HomeController extends Controller
     }
 
     public function home (){
-        $product = Product::paginate(8);
+        $product = Product::paginate(7);
         if(Auth::id()){
             $user = Auth::user();
         $userid = $user->id;
@@ -39,7 +39,7 @@ class HomeController extends Controller
         return view ('home.index', compact('product','count'));
     }
     public function login_home(){
-        $product = Product::paginate(8);
+        $product = Product::paginate(7);
         if(Auth::id()){
             $user = Auth::user();
         $userid = $user->id;

@@ -18,15 +18,35 @@
           <li class="nav-item">
             <a href="{{ url('/about-us') }}" class="nav-link">About Us</a>
           </li>
-        </ul>
-
-        <ul class="navbar-nav mb-2 mb-md-0 ms-5">
+          @if (Route::has('login'))
+          @auth
           <li class="nav-item">
-            <a href="{{ url('/profile') }}" class="nav-link"><img src="{{ asset('images/user.svg') }}" alt="User"></a>
+            <a href="{{ url('myorders') }}" class="nav-link">Orders</a>
           </li>
           <li class="nav-item">
             <a href="{{ url('/mycart') }}" class="nav-link"><img src="{{ asset('images/cart.svg') }}" alt="Cart"></a>
           </li>
+          <li class="nav-item">
+            <a href="{{ url('/profile') }}" class="nav-link"><img src="{{ asset('images/user.svg') }}" alt="User"></a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="fa fa-user" aria-hidden="true"></i> Logout
+            </a>
+            <form id="logout-form" action="{{route('logout')}}" method="POST">
+              @csrf
+            </form>
+          </li>
+          
+        </ul>
+        @else
+        <ul class="navbar-nav mb-2 mb-md-0 ms-5">
+          <li class="nav-item">
+            <a href="{{ url('/login') }}" class="nav-link"><img src="{{ asset('images/user.svg') }}" alt="User"></a>
+          </li>
+          
+          @endauth
+          @endif
         </ul>
       </div>
     </div>
