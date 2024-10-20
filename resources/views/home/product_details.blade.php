@@ -69,8 +69,6 @@
 <!--product details-->
 
 
-   
-
   <!-- info section -->
 
   @include('home.footer')

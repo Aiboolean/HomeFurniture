@@ -8,14 +8,11 @@
 <body>
   <div class="hero_area">
     <!-- start header section -->
-     @include('home.header')
-    <!-- end header section -->
-    <!-- slider section -->
-    @include('home.slider')
-    <!-- end slider section -->
+    @include('home.header')
   </div>
-  <!-- end hero area -->
-
+  <div class="slider_section mt-5">
+    @include('home.slider')
+  </div>
   <!-- shop section -->
     @include('home.product')
   <!-- end shop section -->
