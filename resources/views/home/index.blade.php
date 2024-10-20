@@ -2,26 +2,28 @@
 <html>
 
 <head>
-    @include ('home.style')
+  @include('home.style') <!-- If you are including additional styles here -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 
 <body>
-  <div class="hero_area">
-    <!-- start header section -->
+  <div>
     @include('home.header')
   </div>
-  <div class="slider_section mt-5">
-    @include('home.slider')
+  <div>
+    @include('home.hero')
   </div>
-  <!-- shop section -->
+  <div>
     @include('home.product')
-  <!-- end shop section -->
+  </div>
+  <div>
+    @include('home.footer')
+  </div>
 
-
-  <!-- info section -->
-
-  @include('home.footer')
-
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>
