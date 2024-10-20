@@ -176,20 +176,40 @@ class HomeController extends Controller
 
         return redirect()->back()->with('error', 'Order cannot be canceled as it has been processed.');
     }
-    public function shop() {
+    //public function shop() {
         // Get all categories with their related products
-        $categories = Category::with('products')->get();
+        //$categories = Category::with('products')->get();
     
-        if (Auth::id()) {
-            $user = Auth::user();
-            $userid = $user->id;
-            $count = Cart::where('user_id', $userid)->count();
+        //if (Auth::id()) {
+            //$user = Auth::user();
+            //$userid = $user->id;
+            //$count = Cart::where('user_id', $userid)->count();
+        //} else {
+            //$count = '';
+        //}
+    
+        //return view('home.shop', compact('categories', 'count'));
+    //}
+    public function shop(Request $request) {
+        // Fetch all categories
+        $categories = Category::all();
+    
+        // Initialize the products variable
+        $products = collect(); // Start with an empty collection
+    
+        // Check if a category is selected; if so, filter products by that category
+        if ($request->has('category_name') && !empty($request->category_name)) {
+            $products = Product::where('category', $request->category_name)->get();
         } else {
-            $count = '';
+            // Show all products if no category is selected
+            $products = Product::all();
         }
     
-        return view('home.shop', compact('categories', 'count'));
+        // Get cart count for logged-in users
+        $count = Auth::check() ? Cart::where('user_id', Auth::id())->count() : 0;
+    
+        // Return the view with categories, products, and cart count
+        return view('home.shop', compact('categories', 'products', 'count'));
     }
     
-
 }
