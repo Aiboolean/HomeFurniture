@@ -3,6 +3,10 @@
 
 <head>
     @include('home.style')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -11,7 +15,7 @@
         @include('home.header')
         <!-- end header section -->
 
-        <section class="shop_section layout_padding">
+        <section class="product-section">
             <div class="container">
                 <div class="heading_container heading_center">
                     <h2>Shop by Category</h2>
@@ -36,25 +40,16 @@
                         </div>
                     @else
                         @foreach($products as $product)
-                        <div class="col-sm-6 col-md-4 col-lg-3">
-                            <div class="box">
-                                <a href="{{ url('product_details', $product->id) }}">
-                                    <div class="img-box">
-                                        <img src="{{ asset('products/' . $product->image) }}" alt="{{ $product->title }}">
-                                    </div>
-                                    <div class="detail-box">
-                                        <h6>{{ $product->title }}</h6>
-                                        <h6>
-                                            Price
-                                            <span>${{ $product->price }}</span>
-                                        </h6>
-                                    </div>
-                                    <div>
-                                        <!-- Add to Cart button -->
-                                        <a class="custom-add-btn" href="{{ url('add_cart', $product->id) }}">Add to Cart</a>
-                                    </div>
-                                </a>
-                            </div>
+                        <div style="padding-top: 40px;" class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+                            <a class="product-item" href="{{ url('product_details', $product->id) }}">
+                            <img src="products/{{$product->image}}" class="img-fluid product-thumbnail" alt="{{$product->title}}">
+                            <h3 class="product-title">{{$product->title}}</h3>
+                            <strong class="product-price">₱{{$product->price}}</strong>
+
+                            <span class="icon-cross">
+                                <img src="images/cross.svg" class="img-fluid" alt="cross icon">
+                            </span>
+                            </a>
                         </div>
                         @endforeach
                     @endif
@@ -64,6 +59,7 @@
 
         @include('home.footer')
     </div>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

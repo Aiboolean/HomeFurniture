@@ -211,5 +211,9 @@ class HomeController extends Controller
         // Return the view with categories, products, and cart count
         return view('home.shop', compact('categories', 'products', 'count'));
     }
+    public function about()
+    {
+        return view('home.about');
+    }
     
 }

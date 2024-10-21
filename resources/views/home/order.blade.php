@@ -12,15 +12,11 @@
         }
         table{
             border-collapse:separate;
-            border:solid black 1px;
             border-radius:6px;
             text-align: center;
             width: 800px;
         }
         th{
-           
-            border-left: solid black 1px;
-            border-top: solid black 1px;
             text-align: center;
             color: white;
             font: 20px;
@@ -28,7 +24,7 @@
             background-color: rgb(127, 99, 71);
         }
         td{
-            border: 1px solid black;
+            
             padding: 5px;
         }
         .pagination{

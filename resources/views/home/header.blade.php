@@ -16,7 +16,7 @@
             <a href="{{ url('/shop') }}" class="nav-link">Shop</a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/about-us') }}" class="nav-link">About Us</a>
+            <a href="{{ url('/about') }}" class="nav-link">About Us</a>
           </li>
           @if (Route::has('login'))
           @auth
