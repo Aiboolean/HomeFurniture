@@ -1025,3 +1025,15 @@ textarea {
   align-items: center;
   gap: 4px;
 }
+.custom-select {
+  width: auto; /* Allow the dropdown to resize based on content */
+  min-width: 200px; /* Set a minimum width to avoid the dropdown being too small */
+}
+.navbar-brand {
+  font-size: 25;
+  font-weight: 600;
+}
+
+.navbar-brand>span {
+  opacity: .4;
+}

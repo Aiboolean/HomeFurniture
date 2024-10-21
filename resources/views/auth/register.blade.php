@@ -1,70 +1,64 @@
+@include('home.header')
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
-
-    <div class="flex justify-center mb-6">
-        <img src="{{ asset('images/F.png') }}" alt="Description of the image" style="width: 200px; height: 200px; border-radius: 50%;">
-    </div>
         @csrf
 
+        <!-- HomeFurniture Brand -->
+        <div class="text-center mb-4">
+            <p class="navbar-brand">Home<span>Furniture</span></p>
+        </div>
+
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <div class="form-outline mb-4">
+            <input type="text" id="name" class="form-control" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <label class="form-label" for="name">{{ __('Name') }}</label>
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+        <div class="form-outline mb-4">
+            <input type="email" id="email" class="form-control" name="email" :value="old('email')" required autocomplete="username" />
+            <label class="form-label" for="email">{{ __('Email address') }}</label>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Phone no.-->
-        <div>
-            <x-input-label for="phone" :value="__('Phone No.')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+        <!-- Phone Number -->
+        <div class="form-outline mb-4">
+            <input type="text" id="phone" class="form-control" name="phone" :value="old('phone')" required autocomplete="phone" />
+            <label class="form-label" for="phone">{{ __('Phone No.') }}</label>
             <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- Address -->
-        <div>
-            <x-input-label for="address" :value="__('Address')" />
-            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="address" />
+        <div class="form-outline mb-4">
+            <input type="text" id="address" class="form-control" name="address" :value="old('address')" required autocomplete="address" />
+            <label class="form-label" for="address">{{ __('Address') }}</label>
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
+        <div class="form-outline mb-4">
+            <input type="password" id="password" class="form-control" name="password" required autocomplete="new-password" />
+            <label class="form-label" for="password">{{ __('Password') }}</label>
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
+        <div class="form-outline mb-4">
+            <input type="password" id="password_confirmation" class="form-control" name="password_confirmation" required autocomplete="new-password" />
+            <label class="form-label" for="password_confirmation">{{ __('Confirm Password') }}</label>
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-block mb-4">{{ __('Register') }}</button>
+        </div>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <!-- Already Registered -->
+        <div class="text-center">
+            <p>{{ __('Already registered?') }} <a href="{{ route('login') }}">{{ __('Log in') }}</a></p>
         </div>
     </form>
 </x-guest-layout>

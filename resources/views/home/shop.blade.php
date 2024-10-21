@@ -22,16 +22,20 @@
                 </div>
 
                 <!-- Dropdown to filter by category -->
-                <form method="GET" action="{{ url('shop') }}">
-                    <select name="category_name" onchange="this.form.submit()">
-                        <option value="">All Categories</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->category_name }}" {{ request('category_name') == $category->category_name ? 'selected' : '' }}>
-                                {{ $category->category_name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </form>
+                <form method="GET" action="{{ url('shop') }}" class="form-inline mb-3">
+    <div class="form-group">
+        <label for="category-select" class="mr-2">Filter by Category:</label>
+        <select name="category_name" id="category-select" class="form-control custom-select" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->category_name }}" {{ request('category_name') == $category->category_name ? 'selected' : '' }}>
+                    {{ $category->category_name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+</form>
+
 
                 <div class="row">
                     @if($products->isEmpty())
