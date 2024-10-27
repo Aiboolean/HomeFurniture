@@ -5,8 +5,8 @@
     </div>
     <div class="row">
       <div class="col-md-12 col-lg-3 mb-lg-0">
-        <h2 class="section-title">Crafted with excellent material.</h2>
-        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum, officiis incidunt temporibus dolorem porro?</p>
+        <h2 class="section-title">Crafted with excellent materials.</h2>
+        <p class="mb-4">Made with the best materials out there and with passion, feast your eyes on the craftsmanship of our woodworkers.</p>
         <p><a href="{{ url('shop') }}" class="btn">Explore</a></p>
       </div>
       @foreach ($product as $products)
